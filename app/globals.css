@@ -24,6 +24,9 @@ nav .nav-text {
 .bg-white {
   background-color: inherit;
 }
+.trust {
+  background: #f3f3f3;
+}
 /* @media   (min-width: 1024px) {
   .lg:py-56 {
       padding-top: 8rem;
