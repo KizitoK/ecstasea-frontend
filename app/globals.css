@@ -16,7 +16,7 @@ nav {
   box-shadow: 0px 4px 12px rgb(0 0 0 / 21%);
 }
 nav .nav-text {
-  color: #f3f3f3
+  color: #f3f3f3;
 }
 .max-w-7xl {
   max-width: none;
@@ -26,6 +26,9 @@ nav .nav-text {
 }
 .trust {
   background: #f3f3f3;
+}
+.hover\:bg-gray-50:hover {
+  color: #9ca3af;
 }
 /* @media   (min-width: 1024px) {
   .lg:py-56 {

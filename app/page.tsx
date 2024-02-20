@@ -14,7 +14,7 @@ export default function Home() {
       <Trustees />
       <SubscriptionBar />
       <TokenBar />
-      <Team />
+      {/* <Team /> */}  
     </main>
   )
 }

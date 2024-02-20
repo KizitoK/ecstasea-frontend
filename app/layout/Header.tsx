@@ -9,16 +9,21 @@ import {
     FingerPrintIcon,
     SquaresPlusIcon,
     XMarkIcon,
+    TrophyIcon
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 
 const products = [
-    { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-    { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-    { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-    { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-    { name: 'Transactions', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
+    { name: 'Leagues', description: 'Create, find or participate in Leagues', href: '#l', icon: TrophyIcon },
+    { name: 'Tournaments', description: 'Create, find or participate in Tournaments', href: '#t', icon: ChartPieIcon },
+    // { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
+    // { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
+    // { name: 'Transactions', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
 ]
+
+const headerStyles = {
+    background: "rgb(0 0 125 / 40%)", backdropFilter: "blur(8px)"
+}
 
 function classNames(...classes: string[]): string {
     return classes.filter(Boolean).join(' ')
@@ -49,17 +54,11 @@ export default function Header() {
                 </div>
                 <Popover.Group className="hidden lg:flex lg:gap-x-12">
                     <a href="#" className="text-sm font-semibold leading-6 nav-text">
-                        Home
-                    </a>
-                    <a href="#" className="text-sm font-semibold leading-6 nav-text">
-                        About
-                    </a>
-                    <a href="#" className="text-sm font-semibold leading-6 nav-text">
-                        Products
+                        Marketplace
                     </a>
                     <Popover className="relative">
                         <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 nav-text">
-                            Utilities
+                            Competition
                             <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
                         </Popover.Button>
 
@@ -73,7 +72,7 @@ export default function Header() {
                             leaveTo="opacity-0 translate-y-1"
                         >
                             <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
-                                <div className="p-4">
+                                <div className="p-4" style={headerStyles}>
                                     {products.map((item) => (
                                         <div
                                             key={item.name}
@@ -83,7 +82,7 @@ export default function Header() {
                                                 <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                                             </div>
                                             <div className="flex-auto">
-                                                <a href={item.href} className="block font-semibold text-gray-900">
+                                                <a href={item.href} className="block font-semibold ">
                                                     {item.name}
                                                     <span className="absolute inset-0" />
                                                 </a>
@@ -123,14 +122,14 @@ export default function Header() {
                             <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                         </button>
                     </div>
-                    <div className="mt-6 flow-root">
+                    <div className="mt-6 flow-root px-5" style={headerStyles}>
                         <div className="-my-6 divide-y divide-gray-500/10">
                             <div className="space-y-2 py-6">
                                 <Disclosure as="div" className="-mx-3">
                                     {({ open }) => (
                                         <>
-                                            <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                                                Product
+                                            <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50">
+                                                Competition
                                                 <ChevronDownIcon
                                                     className={classNames(open ? 'rotate-180' : '', 'h-5 w-5 flex-none')}
                                                     aria-hidden="true"
@@ -142,7 +141,7 @@ export default function Header() {
                                                         key={item.name}
                                                         as="a"
                                                         href={item.href}
-                                                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-50"
                                                     >
                                                         {item.name}
                                                     </Disclosure.Button>
@@ -153,31 +152,19 @@ export default function Header() {
                                 </Disclosure>
                                 <a
                                     href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                                >
-                                    Features
-                                </a>
-                                <a
-                                    href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-gray-50"
                                 >
                                     Marketplace
                                 </a>
+                            </div>
+                            <div className="py-3">
                                 <a
                                     href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-gray-50"
                                 >
-                                    Company
+                                    Connect Wallet
                                 </a>
-                            </div>
-                            <div className="py-6">
-                                <a
-                                    href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                                >
-                                    Log in
-                                </a>
-                            </div>
+                            </div><br/><br/>
                         </div>
                     </div>
                 </Dialog.Panel>
